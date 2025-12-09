@@ -1,0 +1,87 @@
+.featuredArticle {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.featuredArticleImage {
+  width: 100%;
+}
+
+.articleTitle {
+  margin-top: 1.5rem;
+  font-size: calc(35rem / 16);
+  font-weight: 700;
+}
+
+.articleDescription {
+  color: grey;
+  font-size: calc(18rem / 16);
+  margin: 1.4rem 0;
+}
+
+.readMoreButton {
+  color: black;
+  font-weight: 800;
+  font-size: calc(18rem / 16);
+  background-color: rgb(230, 76, 76);
+  outline: none;
+  border: none;
+  max-width: 15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 1rem;
+}
+
+.readMoreButton:hover {
+  cursor: pointer;
+}
+
+.newArticles {
+  margin: 3rem 1.3rem;
+  padding: 2rem 1rem;
+  background-color: rgb(18, 0, 46);
+}
+
+.newTitle {
+  color: rgb(207, 159, 0);
+  font-weight: 600;
+  font-size: calc(30rem / 16);
+  margin-bottom: 1.5rem;
+}
+
+.newArticleTitle {
+  color: white;
+  font-size: calc(18rem / 16);
+  font-weight: 600;
+}
+
+.newArticleDescription {
+  color: rgb(161, 161, 161);
+  font-size: calc(14rem / 16);
+}
+
+.newArticleTitle:hover {
+  color: rgb(207, 159, 0);
+  cursor: pointer;
+}
+
+.newArticlesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.divider {
+  border: none;
+  background-color: rgb(99, 99, 99);
+  height: 2px;
+  margin: 1.3rem 0.2rem;
+}
+
+.newArticle:last-of-type .divider {
+  display: none;
+}
