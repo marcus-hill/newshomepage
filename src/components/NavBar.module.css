@@ -73,6 +73,15 @@
     display: flex;
   }
 
+  .desktopLinks ul {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .desktopLinks li {
+    list-style-type: none;
+  }
+
   .nav {
     padding: 3rem;
     max-width: 120rem;

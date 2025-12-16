@@ -18,32 +18,47 @@ const NavBar = ({ children }) => {
       <div className={classes.nav}>
         <img src={Logo} className={classes.logo}></img>
 
-        <div className={classes.desktopLinks}>
-          <Link className={classes.desktopLink} to="/">
-            Home
-          </Link>
-          <Link className={classes.desktopLink} to="/">
-            New
-          </Link>
-          <Link className={classes.desktopLink} to="/">
-            Popular
-          </Link>
-          <Link className={classes.desktopLink} to="/">
-            Trending
-          </Link>
-          <Link className={classes.desktopLink} to="/">
-            Categories
-          </Link>
-        </div>
+        <nav className={classes.desktopLinks}>
+          <ul>
+            <li>
+              <Link className={classes.desktopLink} to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className={classes.desktopLink} to="/">
+                New
+              </Link>
+            </li>
 
-        <a className={classes.openMenuIcon} onClick={toggleMenu}>
+            <li>
+              <Link className={classes.desktopLink} to="/">
+                Popular
+              </Link>
+            </li>
+
+            <li>
+              <Link className={classes.desktopLink} to="/">
+                Trending
+              </Link>
+            </li>
+
+            <li>
+              <Link className={classes.desktopLink} to="/">
+                Categories
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <a className={classes.openMenuIcon} onClick={toggleMenu} aria-label="Open Nav Menu">
           <img src={IconMenu}></img>
         </a>
       </div>
 
       {useNavBarStore((state) => state.navBarOpen) && (
         <div className={classes.mobileNavMenu}>
-          <a className={classes.closeMenuIcon} onClick={toggleMenu}>
+          <a className={classes.closeMenuIcon} onClick={toggleMenu} aria-label="Close Nav Menu">
             <img src={IconMenuClose}></img>
           </a>
           <div className={classes.links}>
