@@ -1,0 +1,18 @@
+.main {
+  position: relative;
+}
+
+/* content wrapper */
+.content {
+  position: relative;
+}
+
+/* overlay only when nav is open */
+.content.mainNavOpen::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  z-index: 1;
+}

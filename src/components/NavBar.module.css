@@ -8,17 +8,18 @@
 .mobileNavMenu {
   background-color: white;
   width: 50%;
-  height: 100%;
+  min-height: 100dvh;
   position: absolute;
   right: 0px;
   top: 0px;
+  z-index: 10;
+  overflow-y: auto;
 }
 
 .mobileNavMenu {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: 2px solid black;
 }
 
 .openMenuIcon:hover {
@@ -31,4 +32,50 @@
 
 .closeMenuIcon:hover {
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  border: none;
+  font-size: calc(18rem / 16);
+  color: black;
+}
+
+.links {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.desktopLinks {
+  display: none;
+  gap: 2rem;
+}
+
+.desktopLink {
+  text-decoration: none;
+  border: none;
+  font-size: calc(18rem / 16);
+  color: rgb(82, 82, 82);
+}
+
+@media (min-width: 80rem) {
+  .mobileNavMenu {
+    display: none;
+  }
+
+  .openMenuIcon {
+    display: none;
+  }
+
+  .desktopLinks {
+    display: flex;
+  }
+
+  .nav {
+    padding: 3rem;
+    max-width: 120rem;
+    margin: 0 auto;
+  }
 }

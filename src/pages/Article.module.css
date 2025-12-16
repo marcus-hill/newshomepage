@@ -1,0 +1,30 @@
+.articleContainer {
+  margin: 1rem;
+}
+
+.articleImage {
+  width: 100%;
+}
+
+.articleTitle {
+  margin-top: 1.5rem;
+  font-size: calc(35rem / 16);
+  font-weight: 700;
+}
+
+.articleDescription {
+  color: grey;
+  font-size: calc(18rem / 16);
+  margin: 1.4rem 0;
+}
+
+.articleDate {
+  margin-top: 0.5rem;
+  color: rgb(97, 97, 97);
+}
+
+.articleBody {
+  margin-top: 1rem;
+  text-align: justify;
+  line-height: 2rem;
+}

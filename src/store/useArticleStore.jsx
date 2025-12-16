@@ -17,4 +17,16 @@ export const useArticleStore = create((set, get) => ({
 
     return articles.slice(0, 3);
   },
+
+  getThreeTopArticles: () => {
+    const articles = [...get().articles].sort((a, b) => {
+      return b.likeCount - a.likeCount;
+    });
+
+    return articles.slice(0, 3);
+  },
+
+  getArticleById: (id) => {
+    return get().articles.find((article) => article.id === Number(id));
+  },
 }));

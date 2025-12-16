@@ -35,6 +35,8 @@
 
 .readMoreButton:hover {
   cursor: pointer;
+  color: white;
+  background-color: black;
 }
 
 .newArticles {
@@ -84,4 +86,109 @@
 
 .newArticle:last-of-type .divider {
   display: none;
+}
+
+.topArticles {
+  margin: 3rem 0;
+  padding: 0 calc(18rem / 16);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topArticle {
+  display: flex;
+  gap: 1.3rem;
+}
+
+.topArticleImage {
+  max-width: 8rem;
+  height: 20rem;
+  object-fit: cover;
+  height: auto;
+}
+
+.topArticleNumber {
+  font-size: calc(36rem / 16);
+  color: rgb(216, 97, 0);
+  font-weight: 800;
+}
+
+.topArticleInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.topArticleTitle {
+  color: black;
+  font-weight: 800;
+  font-size: calc(20rem / 16);
+}
+
+.topArticleTitle:hover {
+  color: rgb(216, 97, 0);
+}
+.topArticleDescription {
+  color: rgb(117, 117, 117);
+  font-size: calc(18rem / 16);
+}
+
+@media (min-width: 80rem) {
+  .homeContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: start;
+    padding: 1rem;
+    grid-column-gap: 1.5rem;
+    grid-template-areas:
+      "featured featured new"
+      "featured featured new"
+      "top top top";
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
+  .featuredArticle {
+    margin: 0;
+    padding: 0;
+    grid-area: featured;
+  }
+
+  .featuredArticleImage {
+    height: 40rem;
+  }
+  .newArticles {
+    margin: 0;
+    height: 90%;
+    grid-area: new;
+  }
+
+  .topArticles {
+    grid-area: top;
+  }
+
+  .articleSection {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .buttonSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topArticles {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .topArticleImage {
+    height: 13rem;
+  }
 }
