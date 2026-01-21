@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import classes from "./Article.module.css";
 import { useArticleStore } from "../store/useArticleStore.jsx";
 import { useMemo } from "react";
@@ -12,7 +12,7 @@ const Article = () => {
     return articles.find((article) => article.id === Number(id));
   }, [articles, id]);
 
-  if (!article) return null;
+  if (!article) return <p>Article Not Found</p>;
 
   return (
     <div className={classes.articleContainer}>

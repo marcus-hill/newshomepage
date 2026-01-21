@@ -2,7 +2,6 @@ import Logo from "../assets/images/logo.svg";
 import IconMenu from "../assets/images/icon-menu.svg";
 import IconMenuClose from "../assets/images/icon-menu-close.svg";
 import classes from "./NavBar.module.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavBarStore } from "../store/useNavBarStore.jsx";
 

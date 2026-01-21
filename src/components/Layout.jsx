@@ -5,10 +5,11 @@ import classes from "./Layout.module.css";
 import clsx from "clsx";
 
 const Layout = () => {
+  const navBarOpen = useNavBarStore((s) => s.navBarOpen);
   return (
     <NavBar>
       <main className={classes.main}>
-        <div className={clsx(classes.content, useNavBarStore((store) => store.navBarOpen) && classes.mainNavOpen)}>
+        <div className={clsx(classes.content, navBarOpen && classes.mainNavOpen)}>
           <Outlet></Outlet>
         </div>
       </main>

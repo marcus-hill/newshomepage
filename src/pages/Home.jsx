@@ -2,16 +2,12 @@ import { useArticleStore } from "../store/useArticleStore.jsx";
 import { Link } from "react-router-dom";
 import classes from "./Home.module.css";
 import { useMemo } from "react";
-import { useState, useEffect } from "react";
 
 const Home = () => {
   const articles = useArticleStore((s) => s.articles);
 
-  const [article, setArticle] = useState(null);
-
-  useEffect(() => {
-    if (!articles.length) return;
-    setArticle(articles[Math.floor(Math.random() * articles.length)]);
+  const article = useMemo(() => {
+    return articles[Math.floor(Math.random() * articles.length)];
   }, [articles]);
 
   const newestArticles = useMemo(() => {
