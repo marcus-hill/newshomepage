@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 import { useNavBarStore } from "../store/useNavBarStore.jsx";
 
 const NavBar = ({ children }) => {
-  const { toggleNavBarOpen } = useNavBarStore();
+  const toggleNavBarOpen = useNavBarStore((s) => s.toggleNavBarOpen);
 
   const toggleMenu = () => {
     toggleNavBarOpen();
   };
+
+  const navBarOpen = useNavBarStore((s) => s.navBarOpen);
 
   return (
     <>
@@ -56,7 +58,7 @@ const NavBar = ({ children }) => {
         </a>
       </div>
 
-      {useNavBarStore((state) => state.navBarOpen) && (
+      {navBarOpen && (
         <div className={classes.mobileNavMenu}>
           <a className={classes.closeMenuIcon} onClick={toggleMenu} aria-label="Close Nav Menu">
             <img src={IconMenuClose}></img>

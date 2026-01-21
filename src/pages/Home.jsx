@@ -2,43 +2,59 @@ import { useArticleStore } from "../store/useArticleStore.jsx";
 import { Link } from "react-router-dom";
 import classes from "./Home.module.css";
 import { useMemo } from "react";
+import { useState, useEffect } from "react";
 
 const Home = () => {
-  const { getRandomArticle, getThreeNewestArticles, getThreeTopArticles } = useArticleStore();
+  const articles = useArticleStore((s) => s.articles);
 
-  const article = getRandomArticle();
+  const [article, setArticle] = useState(null);
+
+  useEffect(() => {
+    if (!articles.length) return;
+    setArticle(articles[Math.floor(Math.random() * articles.length)]);
+  }, [articles]);
 
   const newestArticles = useMemo(() => {
-    return (getThreeNewestArticles() ?? []).map((article) => {
-      return (
-        <div className={classes.newArticle} key={article.id}>
-          <Link to={`/articles/${article.id}`} className={classes.noUnderline}>
-            <p className={classes.newArticleTitle}>{article.title}</p>
-          </Link>
-          <p className={classes.newArticleDescription}>{article.description}</p>
-          <hr className={classes.divider}></hr>
-        </div>
-      );
-    });
-  }, []);
+    return [...articles]
+      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+      .slice(0, 3)
+      .map((article) => {
+        return (
+          <div className={classes.newArticle} key={article.id}>
+            <Link to={`/articles/${article.id}`} className={classes.noUnderline}>
+              <p className={classes.newArticleTitle}>{article.title}</p>
+            </Link>
+            <p className={classes.newArticleDescription}>{article.description}</p>
+            <hr className={classes.divider}></hr>
+          </div>
+        );
+      });
+  }, [articles]);
 
   const topArticles = useMemo(() => {
-    return (getThreeTopArticles() ?? []).map((article, index) => {
-      return (
-        <div className={classes.topArticle} key={article.id}>
-          <img src={article.imageUrl} className={classes.topArticleImage} />
-          <div className={classes.topArticleInfo} key={article.id}>
-            <p className={classes.topArticleNumber}>0{index + 1}</p>
-            <Link to={`/articles/${article.id}`} className={classes.noUnderline}>
-              <p className={classes.topArticleTitle}>{article.title}</p>
-            </Link>
+    return [...articles]
+      .sort((a, b) => b.likeCount - a.likeCount)
+      .slice(0, 3)
+      .map((article, index) => {
+        return (
+          <div className={classes.topArticle} key={article.id}>
+            <img src={article.imageUrl} className={classes.topArticleImage} />
+            <div className={classes.topArticleInfo} key={article.id}>
+              <p className={classes.topArticleNumber}>0{index + 1}</p>
+              <Link to={`/articles/${article.id}`} className={classes.noUnderline}>
+                <p className={classes.topArticleTitle}>{article.title}</p>
+              </Link>
 
-            <p className={classes.topArticleDescription}>{article.description}</p>
+              <p className={classes.topArticleDescription}>{article.description}</p>
+            </div>
           </div>
-        </div>
-      );
-    });
-  }, []);
+        );
+      });
+  }, [articles]);
+
+  if (!article) {
+    return null;
+  }
 
   return (
     <>
